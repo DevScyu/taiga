@@ -52,8 +52,6 @@ bool ThemeManager::Load() {
       document.child(L"theme").child(L"list").child(L"background").child(L"image");
   xml_node node_progress =
       document.child(L"theme").child(L"list").child(L"progress");
-  xml_node node_global =
-      document.child(L"theme").child(L"list").child(L"global");
 
   // Icons
   std::vector<std::wstring> icons16;
@@ -81,21 +79,6 @@ bool ThemeManager::Load() {
   READ_PROGRESS_DATA(kListProgressSeparator, L"separator");
   READ_PROGRESS_DATA(kListProgressWatching, L"watching");
   #undef READ_PROGRESS_DATA
-  
-  // Global
-  #define READ_GLOBAL_DATA(x, name) \
-      list_global_[x].type = node_global.child(name).attribute(L"type").value(); \
-      list_global_[x].value[0] = HexToARGB(node_global.child(name).attribute(L"value_1").value()); \
-      list_global_[x].value[1] = HexToARGB(node_global.child(name).attribute(L"value_2").value()); \
-      list_global_[x].value[2] = HexToARGB(node_global.child(name).attribute(L"value_3").value());
-  READ_GLOBAL_DATA(kListGlobalAired, L"DarkBlue");
-  READ_GLOBAL_DATA(kListGlobalAvailable, L"Gray");
-  READ_GLOBAL_DATA(kListGlobalBackground, L"LightBlue");
-  READ_GLOBAL_DATA(kListGlobalBorder, L"LightGray");
-  READ_GLOBAL_DATA(kListGlobalButton, L"LightGreen");
-  READ_GLOBAL_DATA(kListGlobalCompleted, L"LightRed");
-  READ_GLOBAL_DATA(kListGlobalMainInstruction, L"MainInstruction");
-  #undef READ_GLOBAL_DATA
 
   // Load icons
   icons16_.Remove(-1);
@@ -193,10 +176,6 @@ void ThemeManager::DrawListProgress(HDC hdc, const LPRECT rect,
 
 COLORREF ThemeManager::GetListProgressColor(ListProgressType type) {
   return list_progress_[type].value[0];
-}
-
-COLORREF ThemeManager::GetListGlobalColor(ListGlobalType type) {
-  return list_global_[type].value[0];
 }
 
 }  // namespace ui
