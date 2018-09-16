@@ -26,6 +26,10 @@
 #include "taiga/settings.h"
 #include "track/media.h"
 
+#include <iostream>
+#include <fstream>
+using namespace std;
+
 namespace track {
 namespace recognition {
 
@@ -86,8 +90,17 @@ static const std::vector<StreamData> stream_data{
     taiga::kStream_GoGoAnime,
     L"GoGoAnime",
     L"https://www3.gogoanime.in",
-    std::regex("gogoanime\\.in\/(.*[^(-dub)]).*?-episode-(.*)"),
-    std::regex("(?:Watch)(.+) Episode ([\d]*).*"),
+    std::regex("gogoanime\\.in/(.*[^(-dub)]).*?-episode-[0-9]+"),
+    std::regex("(?:Watch)?(.*) English.*"),
+  },
+  // Twist.moe
+  {
+    Stream::Twist,
+    taiga::kStream_Twist,
+    L"Twist",
+    L"https://twist.moe",
+    std::regex("twist\\.moe/a/[^/]+/[0-9]+"),
+    std::regex("(.+)- Anime Twist"),
   },
   // HIDIVE
   {
@@ -262,6 +275,11 @@ void CleanStreamTitle(const StreamData& stream_data, std::string& title) {
 bool GetTitleFromStreamingMediaProvider(const std::wstring& url,
                                         std::wstring& title) {
   const auto stream = FindStreamFromUrl(url);
+
+  ofstream myfile;
+  myfile.open("stream.txt");
+  myfile << WstrToStr(title);
+  myfile.close();
 
   if (stream) {
     std::string str = WstrToStr(title);

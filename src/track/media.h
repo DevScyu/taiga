@@ -81,6 +81,7 @@ enum class Stream {
   Crunchyroll,
   Funimation,
   GoGoAnime,
+  Twist,
   Hidive,
   Plex,
   Veoh,
