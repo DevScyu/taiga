@@ -69,5 +69,14 @@
 			<available   type="solid" value_1="4B9940"/>
 			<aired       type="solid" value_1="D8D8D8"/>
 		</progress>
+		<global>
+			<DarkBlue		 type="solid" value_1="2e51a2"/>
+			<Gray			 type="solid" value_1="e6e6e6"/>
+			<LightBlue		 type="solid" value_1="e1e7f5"/>
+			<LightGray		 type="solid" value_1="f8f8f8"/>
+			<LightGreen		 type="solid" value_1="e1f5e7"/>
+			<LightRed   	 type="solid" value_1="f5e1e7"/>
+			<MainInstruction type="solid" value_1="003399"/>
+		</global>
 	</list>
 </theme>

@@ -93,13 +93,23 @@ enum ListProgressType {
   kListProgressWatching
 };
 
-const COLORREF kColorDarkBlue = RGB(46, 81, 162);
-const COLORREF kColorGray = RGB(230, 230, 230);
-const COLORREF kColorLightBlue = RGB(225, 231, 245);
-const COLORREF kColorLightGray = RGB(248, 248, 248);
-const COLORREF kColorLightGreen = RGB(225, 245, 231);
-const COLORREF kColorLightRed = RGB(245, 225, 231);
-const COLORREF kColorMainInstruction = RGB(0x00, 0x33, 0x99);
+enum ListGlobalType {
+  kListGlobalDarkBlue,
+  kListGlobalGray,
+  kListGlobalLightBlue,
+  kListGlobalLightGray,
+  kListGlobalLightGreen,
+  kListGlobalLightRed,
+  kListGlobalMainInstruction,
+};
+
+const COLORREF kColorDarkBlue = ui::Theme.GetListGlobalColor(kListGlobalDarkBlue);
+const COLORREF kColorGray = ui::Theme.GetListGlobalColor(kListGlobalGray);
+const COLORREF kColorLightBlue = ui::Theme.GetListGlobalColor(kListGlobalLightBlue);
+const COLORREF kColorLightGray = ui::Theme.GetListGlobalColor(kListGlobalLightGray); //f8f8f8
+const COLORREF kColorLightGreen = ui::Theme.GetListGlobalColor(kListGlobalLightGreen); //e1f5e7
+const COLORREF kColorLightRed = ui::Theme.GetListGlobalColor(kListGlobalLightRed); //f5e1e7
+const COLORREF kColorMainInstruction = ui::Theme.GetListGlobalColor(kListGlobalMainInstruction); //003399
 
 class ThemeManager {
 public:
