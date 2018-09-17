@@ -216,7 +216,9 @@ void ExecuteAction(std::wstring action, WPARAM wParam, LPARAM lParam) {
     auto anime_item = AnimeDatabase.FindItem(anime_id);
     if (anime_item) {
       std::wstring title = anime_item->GetTitle();
+      std::wstring episode = StrToWstr(std::to_string(anime_item->GetEpisodeCount()));
       ReplaceString(body, L"%title%", EncodeUrl(title));
+      ReplaceString(body, L"%episode%", EncodeUrl(episode));
     }
     ExecuteLink(body);
 
