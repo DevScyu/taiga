@@ -67,7 +67,7 @@ void Announcer::Do(int modes, anime::Episode* episode, bool force) {
       LOGD(L"HTTP");
       ToHttp(Settings[kShare_Http_Url],
              ReplaceVariables(Settings[kShare_Http_Format],
-                              *episode, true, force));
+                              *episode, false, force));
     }
   }
 
