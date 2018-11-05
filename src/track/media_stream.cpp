@@ -80,13 +80,13 @@ static const std::vector<StreamData> stream_data{
     std::regex("funimation\\.com/shows/[^/]+/[^/]+/"),
     std::regex("(?:Watch )?(.+) Anime.* (?:on|-) Funimation"),
   },
-  // GoGoAnime
+  // GoGoAnime / GoGoAnimes
   {
     Stream::GoGoAnime,
     taiga::kStream_GoGoAnime,
     L"GoGoAnime",
-    L"https://www3.gogoanime.in",
-    std::regex("gogoanime\\.in/(.*[^(-dub)]).*?-episode-[0-9]+"),
+    L"https://gogoanimes.co/",
+    std::regex("(gogoanime|gogoanimes)\\.(in|co)\\/(.*[^(-dub)]).*?-episode-[0-9]+"),
     std::regex("(?:Watch)?(.*) English.*"),
   },
   // Twist.moe
